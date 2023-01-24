@@ -2,7 +2,6 @@
 import unittest
 import SensorNodesTest
 
-
 class TestScript(unittest.TestCase):
     def test_get_cpu_temp(self):
         temp, _ = SensorNodesTest.main()
