@@ -1,16 +1,16 @@
-import subprocess
 import unittest
+import SensorNodesTest
+import UnitTest
 
-class TestScriptIntegration(unittest.TestCase):
-    def test_script_output(self):
-        process = subprocess.Popen(['python', 'script.py'], stdout=subprocess.PIPE)
-        stdout, _ = process.communicate()
-        stdout_str = stdout.decode("utf-8")
+class TestIntegration(unittest.TestCase):
+    def test_integration(self):
+        temp, disk_usage = SensorNodesTest.main()
 
-        self.assertIn("CPU Temperature", stdout_str)
-        self.assertIn("Disk Usage", stdout_str)
-        self.assertIn("%", stdout_str)
-        self.assertRegex(stdout_str, r'\d+(\.\d+)? (°C|%)')
+        self.assertIsInstance(temp, float)
+        self.assertGreaterEqual(temp, 0)
+
+        self.assertIsInstance(disk_usage, str)
+        self.assertIn("%", disk_usage)
 
 if __name__ == '__main__':
     unittest.main()
