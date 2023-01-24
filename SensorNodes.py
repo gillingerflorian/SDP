@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 from datetime import datetime
-import os
+import subprocess
 import time
 
 def get_cpu_temp():
-    res = os.popen("vcgencmd measure_temp").readline()
-    return float(res.replace("temp=", "").replace("'C\n", ""))
-
+    result = subprocess.run(["vcgencmd", "measure_temp"], capture_output=True, text=True)
+    temp = result.stdout.strip().split("=")[1].replace("'C", "")
+    return float(temp)
 
 def get_disk_usage():
-    res = os.popen("df -h /").readlines()
-    return res[1].split()[4]
+    result = subprocess.run(["df", "-h", "/"], capture_output=True, text=True)
+    usage = result.stdout.strip().split("\n")[1].split()[4]
+    return usage
 
 
 while True:
