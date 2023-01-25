@@ -8,10 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Build and test Docker image
-      uses: actions/docker/cli@v2
-      with:
-        args: build -t my-image-prod .
-        push: false
+      uses: actions/checkout@v3
+      name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
     - name: Push to Docker Hub
       if: github.event_name == 'push'
       -
