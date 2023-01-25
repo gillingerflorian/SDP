@@ -1,18 +1,14 @@
-name: Build and Test on Main Branch
+name: ci
+
 on:
   push:
     branches:
-      - main
+      - 'main'
+
 jobs:
-  build-and-test:
+  docker:
     runs-on: ubuntu-latest
     steps:
-    - name: Build and test Docker image
-      uses: actions/checkout@v3
-      name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-    - name: Push to Docker Hub
-      if: github.event_name == 'push'
       -
         name: Set up QEMU
         uses: docker/setup-qemu-action@v2
@@ -31,5 +27,4 @@ jobs:
         with:
           push: true
           tags: user/app:latest
-
 
