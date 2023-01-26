@@ -1,4 +1,4 @@
-name: Build and Test on Develop Branch
+name: Build docker test stage and push dev to DockerHub - dev
 on:
   push:
     branches:
