@@ -1,4 +1,4 @@
-name: ci
+name: Build docker test stage and push prod to DockerHub - main
 
 on:
   push:

@@ -1,4 +1,4 @@
-name: Build and Test on Feature Branch
+name: Build docker test stage - feature
 on:
   push:
     branches:
