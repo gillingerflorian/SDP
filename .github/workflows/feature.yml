@@ -15,11 +15,11 @@ jobs:
       uses: docker/setup-buildx-action@v2
     - name: Test Docker image
       uses: docker/build-push-action@v3
-        with:
-          platforms: linux/amd64, linux/arm/v6
-          push: false
-          tags: mlpl/sdp_project:test
-          target: test
+      with:
+        platforms: linux/amd64, linux/arm/v6
+        push: false
+        tags: mlpl/sdp_project:test
+        target: test
 
 #    - uses: actions/checkout@v3
 #    - name: Build the Docker image
