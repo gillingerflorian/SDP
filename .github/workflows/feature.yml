@@ -7,7 +7,7 @@ on:
     branches: [ "main" ]
 
 jobs:
-  docker test stage:
+  docker_test_stage:
     runs-on: ubuntu-latest
 
     steps:
