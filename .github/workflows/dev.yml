@@ -4,6 +4,13 @@ on:
     branches:
       - develop
 jobs:
+  docker test stage:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
   build-and-test:
     runs-on: ubuntu-latest
     steps:

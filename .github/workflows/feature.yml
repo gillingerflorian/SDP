@@ -1,14 +1,16 @@
-name: Build docker test stage - feature
+name: Docker Image CI
+
 on:
   push:
-    branches:
-      - feature
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
 jobs:
-  build-and-test:
+  docker test stage:
     runs-on: ubuntu-latest
+
     steps:
-    - name: Build and test Docker image
-      uses: actions/docker/cli@v2
-      with:
-        args: build -t my-image .
-        push: false
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
