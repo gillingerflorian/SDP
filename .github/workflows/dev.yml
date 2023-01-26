@@ -2,7 +2,7 @@ name: Build docker test stage and push dev to DockerHub - dev
 on:
   push:
     branches:
-      - develop
+      - dev
 jobs:
   docker test stage:
     runs-on: ubuntu-latest
