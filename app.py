@@ -13,7 +13,7 @@ def get_cpu_temp():
 
 @app.route('/disk/usage')
 def get_disk_usage():
-    return '<h1>Disk usage:</h2>'
+    return '<h1>Disk USAGE:</h2>'
 
 
 if __name__ == "__main__":
