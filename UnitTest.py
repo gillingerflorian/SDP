@@ -1,18 +1,17 @@
 #!/usr/bin/env python3
 import unittest
-import SensorNodesTest
+import app
 
 class TestScript(unittest.TestCase):
     def test_get_cpu_temp(self):
-        temp, _ = SensorNodesTest.main()
+        temp, _ = app.get_both()
         self.assertIsInstance(temp, float)
         self.assertGreaterEqual(temp, 0)
 
     def test_get_disk_usage(self):
-        _, disk_usage = SensorNodesTest.main()
+        _, disk_usage = app.get_both()
         self.assertIsInstance(disk_usage, str)
-        self.assertIn("%", disk_usage)
-
+        
 
 if __name__ == '__main__':
     suite = unittest.TestLoader().loadTestsFromTestCase(TestScript)

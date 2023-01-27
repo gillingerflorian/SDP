@@ -37,7 +37,7 @@ RUN pip3 install -r ./requirements/dev.txt
 
 COPY . .
 
-CMD [ "flask", "--debug", "run", "--host=0.0.0.0"]
+CMD [ "python3", "-m", "flask", "run", "--host=0.0.0.0"]
 
 
 # TEST
@@ -53,13 +53,13 @@ RUN pip3 install -r ./requirements/dev.txt
 
 COPY . .
 
-CMD [ "flask", "--debug", "run", "--host=0.0.0.0"]
+CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
 
-# run Unit tests
-
-# run Integration tests
-
-
+# run Unit and Integration tests
+#RUN ["coverage", "run", "-m", "UnitTest", "-m", "unit"]
+#RUN ["coverage", "run", "-m", "IntegrationTest", "-m", "integration"] 
+# test coverage, build will fail if under 80%
+#RUN ["coverage", "report", "--fail-under", "80"]
 
 # PRODUCTION
 
@@ -74,4 +74,4 @@ RUN pip3 install -r ./requirements/prod.txt
 
 COPY . .
 
-CMD [ "flask", "--debug", "run", "--host=0.0.0.0"]
+CMD [ "python3", "-m", "flask", "run", "--host=0.0.0.0"]
