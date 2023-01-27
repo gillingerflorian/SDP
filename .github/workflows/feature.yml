@@ -1,4 +1,4 @@
-name: Docker Image CI
+name: Build docker test stage
 
 on:
   push:
@@ -20,7 +20,3 @@ jobs:
         push: false
         tags: mlpl/sdp_project:test
         target: test
-
-#    - uses: actions/checkout@v3
-#    - name: Build the Docker image
-#      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
