@@ -31,11 +31,11 @@ def get_cpu_temp():
     return output
 
 @app.route('/disk/usage')
+
 def get_ram():
     usage = get_disk_usage()
     output = "Usage: " + str(usage)
     return output
-
 
 if __name__ == "__main__":
     app.run(debug=True)
