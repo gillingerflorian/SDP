@@ -56,8 +56,8 @@ COPY . .
 CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
 
 # run flake8 linter
-RUN ["flake8", "./app.py"]
-RUN ["flake8", "./tests/"]
+RUN ["flake8", "app.py"]
+RUN ["flake8", "tests/"]
 
 # run Unit and Integration tests
 RUN ["coverage", "run", "-m", "UnitTest", "-m", "unit"]
