@@ -55,11 +55,15 @@ COPY . .
 
 CMD ["python3", "-m", "flask", "run", "--host=0.0.0.0"]
 
+# run flake8 linter
+RUN ["flake8", "app.py"]
+RUN ["flake8", "tests/"]
+
 # run Unit and Integration tests
-#RUN ["coverage", "run", "-m", "UnitTest", "-m", "unit"]
-#RUN ["coverage", "run", "-m", "IntegrationTest", "-m", "integration"] 
+RUN ["coverage", "run", "-m", "UnitTest", "-m", "unit"]
+RUN ["coverage", "run", "-m", "IntegrationTest", "-m", "integration"] 
 # test coverage, build will fail if under 80%
-#RUN ["coverage", "report", "--fail-under", "80"]
+RUN ["coverage", "report", "--fail-under", "80"]
 
 # PRODUCTION
 
