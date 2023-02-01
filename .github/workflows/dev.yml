@@ -26,7 +26,7 @@ jobs:
         context: "{{defaultContext}}"
         plattforms: linux/amd64,linux/arm64,linux/arm/v6
         push: true
-        tags: ${{ secrets.DOCKERHUB_USERNAME}}/sdp:test
+        tags: ${{ secrets.DOCKERHUB_USERNAME}}/sdp:dev
         target: test
 
 
